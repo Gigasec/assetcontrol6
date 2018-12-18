@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+</head>
+<body>
+  <md-card class="mdl-cell--12-col demo-card-wide card1" ng-controller="editInventoryCtrl">
+    <md-card-title>
+      <md-card-title-text>
+        <h6 id="dashboard-card-title">AEdit Asset</h6>
+      </md-card-title-text>
+    </md-card-title>
+    <div class="card-content">
+      <md-button ng-click="editInventoryCancel()">
+        CANCEL
+      </md-button>
+      <md-button class="md-primary md-raised" ng-click="editInventoryUpdate(editInventoryData.id)">
+        UPDATE
+      </md-button>
+
+      <h4>Updating asset details for - {{editInventoryData.assetName}}</h4>
+      <h6>ASSET ID - {{editInventoryData.id}}</h6>
+      <p></p>
+      <p></p>
+      <p>
+        <md-input-container md-no-float class="md-block">
+          <input ng-model="editInventoryData.assetID" placeholder="Username">
+        </md-input-container>
+      </p>
+      <p>
+        <md-input-container md-no-float class="md-block">
+          <input ng-model="editInventoryData.assetName" placeholder="User ID">
+        </md-input-container>
+      </p>
+      <p>
+        <md-input-container md-no-float class="md-block">
+          <input ng-model="editInventoryData.tagID" placeholder="Asset Name">
+        </md-input-container>
+      </p>
+      <p>
+        <md-input-container md-no-float class="md-block">
+          <input ng-model="editInventoryData.location" placeholder="Asset ID">
+        </md-input-container>
+      </p>
+      <p>
+        <md-input-container md-no-float class="md-block">
+          <input ng-model="editInventoryData.date" placeholder="Location">
+        </md-input-container>
+      </p>
+    </div>
+  </md-card>
+</body>
+
+</html>

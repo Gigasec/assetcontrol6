@@ -1,0 +1,224 @@
+<html lang="en">
+<head>
+  <!--AngularJS Material-->
+  <!-- <script src="lib/angular-material.min.js"></script> -->
+
+  <!--Dashboard Page Css-->
+  <!-- <script src="css/pageDashboard.css"></script> -->
+
+  <!-- Deployd Library -->
+  <script src="dpd.js"></script>
+
+</head>
+<body>
+
+
+  <!-- Dashboard- firstGrid - Frequent Used Asset -->
+  <!-- <md-card class="mdl-cell--12-col demo-card-wide card1" >
+  <md-card-title>
+  <md-card-title-text>
+  <h6 id="dashboard-card-title">FREQUENTLY USED ASSET</h6>
+</md-card-title-text>
+</md-card-title>
+<div class="card-content">
+<div id="chart1">
+<canvas id="popChart" ></canvas>
+</div>
+</div>
+</md-card> -->
+
+<!-- Dashboard - secondGrid - Monitored -->
+
+<div class="mdl-grid">
+  <md-card class="mdl-cell--4-col secondGrid" ng-controller="controllerAssetCount" >
+    <md-card-title>
+      <md-card-title-text>
+        <h6 id="dashboard-card-title">NUMBER OF ASSETS</h6>
+        <!-- <span class="md-headline">Card with image</span>
+        <span class="md-subhead">Large</span> -->
+      </md-card-title-text>
+      <!-- <md-card-title-media>
+      <h1>Media should be here</h1>
+      <div class="md-media-lg card-media"></div>
+    </md-card-title-media> -->
+  </md-card-title>
+  <div class="card-content">
+    <!-- <h6>1</h6> -->
+    <h1>{{DBAssetCount}}</h1>
+
+    <!-- <div id="chart1">
+    <canvas id="popChart" ></canvas>
+  </div> -->
+
+</div>
+</md-card>
+<md-card class="mdl-cell--4-col secondGrid" ng-controller="controllerAssetMonitoredCount" >
+  <md-card-title>
+    <md-card-title-text>
+      <h6 id="dashboard-card-title">MONITORED ASSETS</h6>
+      <!-- <span class="md-headline">Card with image</span>
+      <span class="md-subhead">Large</span> -->
+    </md-card-title-text>
+    <!-- <md-card-title-media>
+    <h1>Media should be here</h1>
+    <div class="md-media-lg card-media"></div>
+  </md-card-title-media> -->
+</md-card-title>
+<div class="card-content">
+  <h1>{{DBAssetMonitoredCount}}</h1>
+  <!-- <div id="chart1">
+  <canvas id="popChart" ></canvas>
+</div> -->
+</div>
+</md-card>
+
+<md-card id="readerStatusCard" class="mdl-cell--4-col secondGrid" >
+  <md-card-title>
+    <md-card-title-text>
+      <h6 id="dashboard-card-title">READER STATUS</h6>
+      <!-- <span class="md-headline">Card with image</span>
+      <span class="md-subhead">Large</span> -->
+    </md-card-title-text>
+    <!-- <md-card-title-media>
+    <h1>Media should be here</h1>
+    <div class="md-media-lg card-media"></div>
+  </md-card-title-media> -->
+</md-card-title>
+<div class="card-content">
+  <h1>OFF</h1>
+  <!-- <div id="chart1">
+  <canvas id="popChart" ></canvas>
+</div> -->
+</div>
+</md-card>
+
+
+
+<!-- Dashboard- pendingAssetGrid -->
+<md-card class="mdl-cell--8-col demo-card-wide card1" >
+  <md-card-title>
+    <md-card-title-text>
+      <h6 id="dashboard-card-title">PENDING ASSET REQUEST</h6>
+    </md-card-title-text>
+  </md-card-title>
+  <div class="card-content">
+    <table id="assetRequestTable" ng-controller = "controllerDashBoardAssetRequestTable"
+    class="mdl-data-table mdl-js-data-table mdl-shadow--1dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Username</th>
+        <th class="mdl-data-table__cell--non-numeric">User ID</th>
+        <th class="mdl-data-table__cell--non-numeric">Asset Name</th>
+        <th class="mdl-data-table__cell--non-numeric">Asset ID</th>
+        <!-- <th class="mdl-data-table__cell--non-numeric">Location</th>
+        <th class="mdl-data-table__cell--non-numeric">Approved Status</th>
+        <th class="mdl-data-table__cell--non-numeric">Returned Status</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="data in DBassetRequestTablePending">
+        <td class="mdl-data-table__cell--non-numeric">{{data.username}}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{data.userID}}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{data.assetName}}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{data.assetID}}</td>
+        <!-- <td class="mdl-data-table__cell--non-numeric">{{data.location}}</td> -->
+        <!-- <td class="mdl-data-table__cell--non-numeric">
+          <md-select id="{{data.id}}" ng-model="approvalsModel" placeholder="{{data.isApproved}}" class="md-no-underline" aria-label="aaa" >
+            <md-option value="Approved" style="background-color:blue; color:white;" ng-click="selectedChangeApprovals(data.id,'Approved')">Approved</md-option>
+            <md-option value="Not Approved" style="background-color:red; color:white;" ng-click="selectedChangeApprovals(data.id,'Not Approved')">Not Approved</md-option>
+          </md-select>
+        </td>
+        <td class="mdl-data-table__cell--non-numeric">
+          <md-select id="{{data.id}}" ng-model="returnsModel" placeholder="{{data.isReturned}}" class="md-no-underline" aria-label="rrr" >
+            <md-option value="Approved" style="background-color:blue; color:white;" ng-click="selectedChangeReturns(data.id,'Returned')">Returned</md-option>
+            <md-option value="Not Approved" style="background-color:red; color:white;" ng-click="selectedChangeReturns(data.id,'Not Returned')">Not Returned</md-option>
+          </md-select>
+        </td> -->
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</md-card>
+
+<!-- Dashboard- pendingAssetGrid -->
+<md-card class="mdl-cell--8-col demo-card-wide card1" >
+  <md-card-title>
+    <md-card-title-text>
+      <h6 id="dashboard-card-title">LAST SEEN DEVICES</h6>
+    </md-card-title-text>
+  </md-card-title>
+  <div class="card-content">
+    <div id="chart1">
+      <canvas id="popChart" ></canvas>
+    </div>
+  </div>
+</md-card>
+</div>
+
+<!-- Angular Grid List -->
+<!-- <md-grid-list
+md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+md-row-height-gt-md="1:1" md-row-height="4:4"
+md-gutter="12px" md-gutter-gt-sm="8px" >
+<md-grid-tile class="green" md-rowspan="1" md-colspan="2">
+  <md-grid-tile-footer>
+    <h3>#2: (1r x 1c)</h3>
+  </md-grid-tile-footer>
+</md-grid-tile>
+<md-grid-tile class="green" md-rowspan="1" md-colspan="2">
+  <md-grid-tile-footer>
+    <h3>#2: (1r x 1c)</h3>
+  </md-grid-tile-footer>
+</md-grid-tile>
+<md-grid-tile class="green" md-rowspan="1" md-colspan="2">
+  <md-grid-tile-footer>
+    <h3>#2: (1r x 1c)</h3>
+  </md-grid-tile-footer>
+</md-grid-tile>
+
+<md-grid-tile class="green" md-rowspan="2" md-colspan="2">
+  <md-grid-tile-footer>
+    <h3>#2: (1r x 1c)</h3>
+  </md-grid-tile-footer>
+</md-grid-tile>
+
+<md-grid-tile class="gray" md-rowspan="2" md-colspan="4" >
+<md-grid-tile-footer>
+  <h3>#1: (3r x 2c)</h3>
+</md-grid-tile-footer>
+</md-grid-tile>
+
+</md-grid-list> -->
+
+<!-- <script>
+
+// Charjs Chart
+var popCanvas = document.getElementById("popChart");
+var barChart = new Chart(popCanvas, {
+type: 'line',
+data: {
+labels: ["Jun 21,8AM", "Jun 21,10AM", "Jun 21,12AM", "Jun 21,2PM", "Jun 21,4PM", "Jun 21,6PM", "Jun 21,8PM", "Jun 21,10PM", "Jun 21,12PM", "Jun 22,2AM"],
+datasets: [{
+label: 'Population',
+data: [13, 1, 32, 26, 53, 98, 22, 15, 22, 13],
+backgroundColor: ['rgba(153, 102, 255, 0.6)'],
+borderColor:['rgba(153, 2, 255, 0.6)'],
+fill: true
+}]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+scales: {
+yAxes: [{
+ticks: {
+beginAtZero:true
+}
+}]
+}
+}
+});
+</script> -->
+</body>
+
+</html>

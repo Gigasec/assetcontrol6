@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+  <!--AngularJS Material-->
+  <!-- <script src="lib/angular-material.min.js"></script> -->
+</head>
+<body>
+
+  <!-- Card - Inventory Table  -->
+  <md-card class="mdl-cell--12-col demo-card-wide card1" >
+    <md-card-title>
+      <md-card-title-text>
+        <h6 id="dashboard-card-title">ASSET&#160; INVENTORY</h6>
+      </md-card-title-text>
+    </md-card-title>
+    <div class="card-content">
+      <div id="headerSearchBar">
+        <md-input-container md-no-float>
+          <label id="searchBarTitle">Search Here</label>
+          <input id="searchBar" placeholder="Search Here" type="text" ng-model="searchInventory">
+          <md-button id="searchBarButton"><i class="material-icons button-icons">search</i></md-button>
+        </md-input-container>
+      </div>
+
+      <p></p>
+      <!-- addAsset Button -->
+      <md-button id="buttonAddAsset" class="md-primary md-raised" ng-click="showAdvanced($event)">
+        <i class="material-icons button-icons">add</i>
+        ASSET
+      </md-button>
+      <p></p>
+
+      <!-- Table - Inventory table -->
+      <table id="assetRequestTable" ng-controller = "controllerInventoryTable" class="mdl-data-table mdl-js-data-table mdl-shadow--1dp">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">Asset/Barcode ID</th>
+            <th class="mdl-data-table__cell--non-numeric">Asset Name</th>
+            <th class="mdl-data-table__cell--non-numeric">Tag ID</th>
+            <!-- <th class="mdl-data-table__cell--non-numeric">Barcode</th> -->
+            <th class="mdl-data-table__cell--non-numeric">Location</th>
+            <!-- <th class="mdl-data-table__cell--non-numeric">Cost</th> -->
+            <th class="mdl-data-table__cell--non-numeric">Date of Registration</th>
+
+            <th class="mdl-data-table__cell--non-numeric">Must be Returned</th>
+            <th class="mdl-data-table__cell--non-numeric">Monitored</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="data in DBdata | filter : searchInventory" id="{{data.id}}" ng-click="editInventory(data)">
+            <td class="mdl-data-table__cell--non-numeric">{{data.assetID}}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{data.assetName}}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{data.tagID}}</td>
+            <!-- <td class="mdl-data-table__cell--non-numeric">{{data.barcode}}</td> -->
+            <td class="mdl-data-table__cell--non-numeric">{{data.location}}</td>
+            <!-- <td class="mdl-data-table__cell--non-numeric">&#x20A6;{{data.cost}}</td> -->
+            <td class="mdl-data-table__cell--non-numeric">{{data.date}}</td>
+
+            <td class="mdl-data-table__cell--non-numeric"><md-checkbox></md-checkbox></td>
+            <td class="mdl-data-table__cell--non-numeric">
+              <md-switch id="{{data.id}}" class="{{data.isMonitored}}"  aria-label="Switch 1" ng-click="showSimpleToast(data.id,data.isMonitored)"></md-switch>
+              <!-- <md-switch id="{{data.id}}" class="{{data.isMonitored}}" aria-label="Switch 1" ng-click="showSimpleToast(data.id,data.isMonitored)"></md-switch> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </md-card>
+</body>
+</html>

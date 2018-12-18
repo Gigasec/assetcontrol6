@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+  <!--AngularJS Material-->
+  <!-- <script src="lib/angular-material.min.js"></script> -->
+</head>
+<body>
+  <!-- Card - Inventory Table  -->
+  <md-card class="mdl-cell--12-col demo-card-wide card1" >
+    <md-card-title>
+      <md-card-title-text>
+        <!-- <h1>Page User Management</h1> -->
+        <h6 id="dashboard-card-title">USER MANAGEMENT</h6>
+      </md-card-title-text>
+    </md-card-title>
+    <div class="card-content">
+      <div id="headerSearchBar">
+        <md-input-container md-no-float>
+          <label id="searchBarTitle">Search Here</label>
+          <input id="searchBar" placeholder="Search Here" type="text" ng-model="searchUserManagement">
+          <md-button id="searchBarButton"><i class="material-icons button-icons">search</i></md-button>
+        </md-input-container>
+      </div>
+
+      <!-- Table - Inventory table -->
+      <table id="assetRequestTable" ng-controller = "controllerUserManagementTable" class="mdl-data-table mdl-js-data-table mdl-shadow--1dp">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">Username</th>
+            <th class="mdl-data-table__cell--non-numeric">Admin Privilege</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="data in userData | filter : searchUserManagement" id="{{data.id}}" ng-click="editUserManagement(data)">
+            <td class="mdl-data-table__cell--non-numeric">{{data.username}}</td>
+            <td class="mdl-data-table__cell--non-numeric">
+              <md-switch id="{{data.id}}" class="{{data.isAdmin}}"aria-label="Switch 1" ng-click="changePrivilege(data.id,data.isAdmin)"></md-switch>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </md-card>
+</body>
+</html>

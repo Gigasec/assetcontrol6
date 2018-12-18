@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+</head>
+<body>
+  <md-card class="mdl-cell--12-col demo-card-wide card1" ng-controller="editUserManagementCtrl">
+    <md-card-title>
+      <md-card-title-text>
+        <h6 id="dashboard-card-title">Edit User</h6>
+      </md-card-title-text>
+    </md-card-title>
+    <div class="card-content">
+      <md-button ng-click="editUserManagementCancel()">
+        CANCEL
+      </md-button>
+      <md-button class="md-primary md-raised" ng-click="editUserManagementUpdate(editUserManagementData.id)">
+        UPDATE
+      </md-button>
+
+      <h4>Updating user profile for - {{editUserManagementData.username}}</h4>
+      <!-- <h6>ASSET ID - {{editUserManagementData.id}}</h6> -->
+      <p></p>
+      <p></p>
+      <p>
+        <md-input-container md-no-float class="md-block">
+          <input ng-model="editUserManagementData.username" placeholder="Username">
+        </md-input-container>
+      </p>
+      <p>
+        <md-input-container md-no-float class="md-block">
+          <input ng-model="editUserManagementData.password" placeholder="Password">
+        </md-input-container>
+      </p>
+    </div>
+  </md-card>
+</body>
+
+</html>

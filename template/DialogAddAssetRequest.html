@@ -1,0 +1,53 @@
+<md-dialog id="dialogAddAsset" aria-label="Mango (Fruit)">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Add Asset Request</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <!-- <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon> -->
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <p>
+          <md-input-container md-no-float class="md-block">
+            <input ng-model="addAssetRequestUsername" placeholder="Username">
+          </md-input-container>
+        </p>
+        <p>
+          <md-input-container md-no-float class="md-block">
+            <input ng-model="addAssetRequestUserID" placeholder="User ID">
+          </md-input-container>
+        </p>
+        <p>
+          <md-input-container md-no-float class="md-block">
+            <input ng-model="addAssetRequestAssetName" placeholder="Asset Name">
+          </md-input-container>
+        </p>
+        <p>
+          <md-input-container md-no-float class="md-block">
+            <input ng-model="addAssetRequestAssetID" placeholder="Asset ID">
+          </md-input-container>
+        </p>
+        <p>
+          <md-input-container md-no-float class="md-block">
+            <input ng-model="addAssetRequestLocation" placeholder="Location">
+          </md-input-container>
+        </p>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="cancel()">
+        CANCEL
+      </md-button>
+      <md-button class="md-primary md-raised" ng-click="AssetRequestAnswer('useful')">
+        ADD ASSET
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

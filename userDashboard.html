@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags always come first -->
+  <!--Written by Michael Oshogbunu for Gigasec Intl-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="Gigasec international" content="">
+  <link rel="icon" href="">
+
+  <title>User Profile | GigaConnect</title>
+
+  <!-- Material Library -->
+  <link rel="stylesheet" href="lib/mdl/material.min.css">
+  <link rel="stylesheet" href="css/angular-material.min.css">
+  <script src="lib/mdl/material.min.js"></script>
+
+  <!--JQuery Library-->
+  <script type="text/javascript" src="lib/jquery.min.js"></script>
+
+  <!--AngularJS Library-->
+  <script type="text/javascript" src="lib/angular.min.js"></script>
+  <script type="text/javascript" src="lib/angular-animate.min.js"></script>
+  <script type="text/javascript" src="lib/angular-aria.min.js"></script>
+  <script type="text/javascript" src="lib/angular-messages.min.js"></script>
+  <script type="text/javascript" src="lib/angular-route.min.js"></script>
+
+
+
+  <!--ChartJs Library-->
+  <!-- <script type="text/javascript" src="js/Chart.min.js"></script> -->
+
+  <!--AngularJS Material-->
+  <script src="lib/angular-material.min.js"></script>
+
+
+  <!--Deployd Library-->
+  <!-- <script src="dpd.js"></script> -->
+
+  <!--ChartJs Library-->
+  <script type="text/javascript" src="lib/Chart.min.js"></script>
+
+  <!-- Custom Js and Css-->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!--Ractive JS Library-->
+  <!-- <script src="lib/ractive.min.js"></script> -->
+
+  <!--dialog libraries required for Material Design Lite dialog-->
+  <script src="lib/dialog-polyfill.js"></script>
+  <script src="css/dialog-polyfill.css"></script>
+
+  <!-- <script src="js/nav.js"></script> -->
+
+</head>
+<body>
+  <div ng-app="mainApp" ng-controller="mainController" layout="column" style="height:100%;" ng-cloak>
+    <!-- Toolbar -->
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" ng-click="toggleLeft()" hide-gt-md>
+          <i class="material-icons">menu</i>
+        </md-button>
+
+        <h2 flex md-truncate>GigaConnect</h2>
+
+        <!-- Add spacer, to align navigation to the right -->
+        <!-- <div class="mdl-layout-spacer"></div> -->
+        <!-- <div layout="row" layout-align="space-between center" class="md-toolbar-tools"> -->
+        <div layout="row" class="md-toolbar-tools">
+          <!-- <div> -->
+          <h2 id="siteTitle"> GigaConnect</h2>
+          <div class="mdl-layout-spacer"></div>
+          <md-menu >
+            <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="ctrl.openMenu($mdMenu, $event)" ng-controller="BasicDemoCtrl as ctrl">
+              <i class="material-icons">more_vert</i>
+            </md-button>
+            <md-menu-content width="4">
+              <md-menu-item>
+                <md-button ng-click="showHelp()">
+                  <md-icon md-svg-icon="call:dialpad" md-menu-align-target></md-icon>
+                  Help
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click="logout()">
+                  <md-icon md-svg-icon="call:dialpad" md-menu-align-target></md-icon>
+                  Logout
+                </md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+        </div>
+      </div>
+    </md-toolbar>
+
+    <!-- Sidenav -->
+    <section layout="row" flex>
+
+      <!-- <md-sidenav id="navBarLeft"
+      class="md-sidenav-left"
+      md-component-id="left"
+      md-is-locked-open="$mdMedia('gt-md')"
+      md-whiteframe="4">
+      <md-toolbar class="md-theme-indigo" hide-gt-md>
+      <h1 class="md-toolbar-tools">GigaConnect</h1>
+    </md-toolbar>
+    <md-content layout-padding ng-controller="LeftCtrl">
+    <br>
+    <br>
+    <ul class="navLinks">
+    <li><a href="#!pageDashboard" ng-click="showPageDashboard()"><i class="material-icons drawer-icons">equalizer</i>Dashboard</a></li>
+    <li><a href="#!pageAssetRequest" ng-click="showPageAsset()"><i class="material-icons drawer-icons">check_box</i>Asset Request</a></li>
+    <li><a href="#!pageInventory" ng-click="showPageInventory()"><i class="material-icons drawer-icons">weekend</i>Inventory</a></li>
+    <li><a href="#!pageReports" ng-click="showPageReports()"><i class="material-icons drawer-icons">pie_chart</i>Reports</a></li>
+    <li><a href="#!pageSettings" ng-click="showPageSettings()"><i class="material-icons drawer-icons">settings</i>Settings</a></li>
+  </ul>
+</md-content>
+</md-sidenav> -->
+
+<md-content flex layout-padding>
+  <div layout="column" layout-align="top center" class="mdl-grid">
+    <!--Dynamic View -->
+    <!-- <div ng-view class="mdl-cell--12-col"></div> -->
+
+    <!-- -->
+    <!-- Card - Inventory Table  -->
+    <md-card class="mdl-cell--12-col demo-card-wide card1" >
+      <md-card-title>
+        <md-card-title-text>
+          <!-- <h1>Page User Management</h1> -->
+          <h6 id="dashboard-card-title">MY ASSET REQUEST</h6>
+        </md-card-title-text>
+      </md-card-title>
+      <div class="card-content">
+        <!-- <div id="headerSearchBar">
+        <md-input-container md-no-float>
+        <label id="searchBarTitle">Search Here</label>
+        <input id="searchBar" placeholder="Search Here" type="text" ng-model="searchUserManagement">
+        <md-button id="searchBarButton"><i class="material-icons button-icons">search</i></md-button>
+      </md-input-container>
+    </div> -->
+
+    <!-- <p></p> -->
+    <!-- addAsset Button -->
+    <!-- <md-button id="buttonAddAsset" class="md-primary md-raised" ng-click="showAdvanced($event)">
+    <i class="material-icons button-icons">add</i>
+    ASSET
+  </md-button> -->
+  <!-- <p></p> -->
+
+  <!-- Table - Inventory table -->
+  <table id="assetRequestTable" ng-controller = "controllerUserAssetRequest" class="mdl-data-table mdl-js-data-table mdl-shadow--1dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Asset Name</th>
+        <th class="mdl-data-table__cell--non-numeric">Asset ID</th>
+        <th class="mdl-data-table__cell--non-numeric">Location</th>
+        <th class="mdl-data-table__cell--non-numeric">Approved Status</th>
+        <th class="mdl-data-table__cell--non-numeric">Returned Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="data in UserAssetRequestData">
+        <td class="mdl-data-table__cell--non-numeric">{{data.assetName}}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{data.assetID}}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{data.location}}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{data.isApproved}}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{data.isReturned}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</md-card>
+<!-- -->
+
+
+
+
+<div>
+  <!-- <md-button ng-click="toggleRight()"
+  ng-hide="isOpenRight()"
+  class="md-primary">
+  Toggle right
+</md-button> -->
+<h6>Powered by Gigasec Intl</h6>
+</div>
+</div>
+<div flex></div>
+</md-content>
+
+<!-- <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+<md-toolbar class="md-theme-light">
+<h1 class="md-toolbar-tools">Sidenav Right</h1>
+</md-toolbar>
+<md-content ng-controller="RightCtrl" layout-padding>
+<form>
+<md-input-container>
+<label for="testInput">Test input</label>
+<input type="text" id="testInput"
+ng-model="data" md-autofocus>
+</md-input-container>
+</form>
+<md-button ng-click="close()" class="md-primary">
+Close Sidenav Right
+</md-button>
+</md-content>
+</md-sidenav> -->
+
+</section>
+</div>
+
+<!--App.js app controller-->
+<script src="js/app.js"></script>
+</body>
+</html>

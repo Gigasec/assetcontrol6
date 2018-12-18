@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags always come first -->
+  <!--Written by Michael Oshogbunu for Gigasec Intl-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="Gigasec international" content="">
+  <link rel="icon" href="">
+
+  <title>Console | GigaConnect</title>
+
+  <!-- Material Library -->
+  <link rel="stylesheet" href="lib/mdl/material.min.css">
+  <link rel="stylesheet" href="css/angular-material.min.css">
+  <script src="lib/mdl/material.min.js"></script>
+
+  <!--JQuery Library-->
+  <script type="text/javascript" src="lib/jquery.min.js"></script>
+
+  <!--AngularJS Library-->
+  <script type="text/javascript" src="lib/angular.min.js"></script>
+  <script type="text/javascript" src="lib/angular-animate.min.js"></script>
+  <script type="text/javascript" src="lib/angular-aria.min.js"></script>
+  <script type="text/javascript" src="lib/angular-messages.min.js"></script>
+  <script type="text/javascript" src="lib/angular-route.min.js"></script>
+
+
+
+  <!--ChartJs Library-->
+  <!-- <script type="text/javascript" src="js/Chart.min.js"></script> -->
+
+  <!--AngularJS Material-->
+  <script src="lib/angular-material.min.js"></script>
+
+
+  <!--Deployd Library-->
+  <!-- <script src="dpd.js"></script> -->
+
+  <!--ChartJs Library-->
+  <script type="text/javascript" src="lib/Chart.min.js"></script>
+
+  <!-- Custom Js and Css-->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!--Ractive JS Library-->
+  <!-- <script src="lib/ractive.min.js"></script> -->
+
+  <!--dialog libraries required for Material Design Lite dialog-->
+  <script src="lib/dialog-polyfill.js"></script>
+  <script src="css/dialog-polyfill.css"></script>
+
+  <!-- <script src="js/nav.js"></script> -->
+
+</head>
+<body>
+  <!-- <div ng-app="mainApp" ng-controller="mainController" layout="column" style="height:100%;" ng-cloak> -->
+  <div ng-app="mainApp" layout="column" style="height:100%;" ng-controller="mainController" ng-cloak>
+
+
+    <!-- Sidenav -->
+    <!-- <section layout="row" flex> -->
+
+
+    <md-content flex layout-padding>
+
+      <div layout="column" layout-align="bottom center" class="mdl-grid">
+
+        <!-- Single Page Asset Request Card -->
+        <!-- <md-card  ng-controller="controllerAssetCount" > -->
+        <!-- <h1 id="loginAppName">GigaConnect</h1> -->
+        <p></p>
+        <md-card id="AssetRequestAnswerSinglePage">
+          <md-card-title>
+            <!-- <md-card-title-text>
+              Asset Request
+            </md-card-title-text> -->
+          </md-card-title>
+          <div class="card-content">
+            <p>
+              <md-input-container md-no-float class="md-block">
+                <input ng-model="signupUsername" placeholder="Username">
+              </md-input-container>
+            </p>
+            <p>
+              <md-input-container md-no-float class="md-block">
+                <input ng-model="signupPassword" placeholder="Password" type="password">
+              </md-input-container>
+            </p>
+            <md-button id="buttonAddAsset" class="md-primary md-raised" ng-click="signup()">
+              SIGN UP
+            </md-button>
+          </div>
+        </md-card>
+        <div class="loginFooter">
+          <p></p>
+          <a href="\index.html">Sign In</a>
+          <h6>Powered by Gigasec Intl</h6>
+        </div>
+      </div>
+      <div flex></div>
+    </md-content>
+    <!-- </section> -->
+  </div>
+
+  <!--App.js app controller-->
+  <script src="js/app.js"></script>
+</body>
+</html>

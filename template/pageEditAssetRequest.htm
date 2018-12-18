@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+</head>
+<body>
+  <md-card class="mdl-cell--12-col demo-card-wide card1" ng-controller="editAssetRequestCtrl">
+    <md-card-title>
+      <md-card-title-text>
+        <h6 id="dashboard-card-title">ASSET REQUEST</h6>
+      </md-card-title-text>
+    </md-card-title>
+    <div class="card-content">
+      <md-button ng-click="editAssetRequestCancel()">
+        CANCEL
+      </md-button>
+      <md-button class="md-primary md-raised" ng-click="editAssetRequestUpdate(editAssetRequestData.id)">
+        UPDATE
+      </md-button>
+
+      <h4>Updating request for - {{editAssetRequestData.username}}</h4>
+      <h6>REQUEST ID - {{editAssetRequestData.id}}</h6>
+      <p></p>
+      <p></p>
+      <p>
+        <md-input-container md-no-float class="md-block">
+          <input ng-model="editAssetRequestData.username" placeholder="Username">
+        </md-input-container>
+      </p>
+      <p>
+        <md-input-container md-no-float class="md-block">
+          <input ng-model="editAssetRequestData.userID" placeholder="User ID">
+        </md-input-container>
+      </p>
+      <p>
+        <md-input-container md-no-float class="md-block">
+          <input ng-model="editAssetRequestData.assetName" placeholder="Asset Name">
+        </md-input-container>
+      </p>
+      <p>
+        <md-input-container md-no-float class="md-block">
+          <input ng-model="editAssetRequestData.assetID" placeholder="Asset ID">
+        </md-input-container>
+      </p>
+      <p>
+        <md-input-container md-no-float class="md-block">
+          <input ng-model="editAssetRequestData.location" placeholder="Location">
+        </md-input-container>
+      </p>
+    </div>
+  </md-card>
+</body>
+
+</html>

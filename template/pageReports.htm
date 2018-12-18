@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+  <!--AngularJS Material-->
+  <!-- <script src="lib/angular-material.min.js"></script> -->
+</head>
+<body>
+  <!-- <div class="mdl-grid"> -->
+
+  <!-- Chart -Frequent Used Asset -->
+  <md-card class="mdl-cell--12-col demo-card-wide card1" ng-controller="ExampleTwoController">
+    <md-card-title>
+      <md-card-title-text>
+        <h6 id="dashboard-card-title">FREQUENTLY USED ASSET</h6>
+        <!-- <span class="md-headline">Card with image</span>
+        <span class="md-subhead">Large</span> -->
+      </md-card-title-text>
+      <!-- <md-card-title-media>
+      <h1>Media should be here</h1>
+      <div class="md-media-lg card-media"></div>
+    </md-card-title-media> -->
+  </md-card-title>
+  <div class="card-content">
+
+    <h1>Reports Page here {{news.theme}}</h1>
+        <h1>Desired Reports Page here {{desiredLocation}}</h1>
+    <!-- <h1>Chart Here</h1> -->
+    <!-- <div id="chart1">
+    <canvas id="popChart" width="100" height="100"></canvas>
+  </div> -->
+</div>
+
+<!-- <md-card-actions layout="row" layout-align="end center">
+<md-button>Action 1</md-button>
+<md-button>Action 2</md-button>
+</md-card-actions> -->
+</md-card>
+<!-- </div> -->
+
+<!-- <script>
+
+// Charjs Chart
+var popCanvas = document.getElementById("popChart");
+var barChart = new Chart(popCanvas, {
+type: 'bar',
+data: {
+labels: ["China", "India", "United States", "Indonesia", "Brazil", "Pakistan", "Nigeria", "Bangladesh", "Russia", "Japan"],
+datasets: [{
+label: 'Population',
+data: [1379, 1281, 3266, 2605, 5391, 9861, 2261, 1578, 2219, 1398],
+backgroundColor: [
+'rgba(255, 99, 132, 0.6)',
+'rgba(54, 162, 235, 0.6)',
+'rgba(255, 206, 86, 0.6)',
+'rgba(75, 192, 192, 0.6)',
+'rgba(153, 102, 255, 0.6)',
+'rgba(255, 159, 64, 0.6)',
+'rgba(255, 99, 132, 0.6)',
+'rgba(54, 162, 235, 0.6)',
+'rgba(255, 206, 86, 0.6)',
+'rgba(75, 192, 192, 0.6)',
+'rgba(153, 102, 255, 0.6)'
+]
+}]
+}
+});
+</script> -->
+</body>
+
+</html>

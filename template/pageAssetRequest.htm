@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+  <!--AngularJS Material-->
+  <!-- <script src="lib/angular-material.min.js"></script> -->
+</head>
+<body>
+  <!-- <div class="mdl-grid"> -->
+
+  <!-- Chart -Frequent Used Asset -->
+  <md-card class="mdl-cell--12-col demo-card-wide card1" >
+    <md-card-title>
+      <md-card-title-text>
+        <h6 id="dashboard-card-title">ASSET REQUEST</h6>
+        <!-- <span class="md-headline">Card with image</span>
+        <span class="md-subhead">Large</span> -->
+      </md-card-title-text>
+      <!-- <md-card-title-media>
+      <h1>Media should be here</h1>
+      <div class="md-media-lg card-media"></div>
+    </md-card-title-media> -->
+  </md-card-title>
+
+  <div class="card-content">
+    <!-- addAssetRequest Button -->
+    <div id="headerSearchBar">
+      <md-input-container md-no-float>
+        <label id="searchBarTitle">Search Here</label>
+        <input id="searchBar" placeholder="Search Here" type="text" ng-model="searchAssetRequest">
+        <md-button id="searchBarButton"><i class="material-icons button-icons">search</i></md-button>
+      </md-input-container>
+    </div>
+    <p></p>
+    <md-button id="buttonAddAsset" class="md-primary md-raised" ng-click="showAdvancedAssetRequest()">
+      <i class="material-icons button-icons">add</i>
+      ASSET REQUEST
+    </md-button>
+    <p></p>
+
+    <!-- Table - Inventory table -->
+    <table id="assetRequestTable" ng-controller = "controllerAssetRequestTable"
+    class="mdl-data-table mdl-js-data-table mdl-shadow--1dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Username</th>
+        <th class="mdl-data-table__cell--non-numeric">User ID</th>
+        <th class="mdl-data-table__cell--non-numeric">Asset Name</th>
+        <th class="mdl-data-table__cell--non-numeric">Asset ID</th>
+        <th class="mdl-data-table__cell--non-numeric">Location</th>
+        <th class="mdl-data-table__cell--non-numeric">Comments</th>
+        <th class="mdl-data-table__cell--non-numeric">Approved Status</th>
+        <th class="mdl-data-table__cell--non-numeric">Returned Status</th>
+        <th class="mdl-data-table__cell--non-numeric">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="data in DBassetRequest | filter : searchAssetRequest" id="{{data.id}}" ng-click="editAssetRequest(data)">
+        <td class="mdl-data-table__cell--non-numeric">{{data.username}}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{data.userID}}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{data.assetName}}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{data.assetID}}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{data.location}}</td>
+        <td class="mdl-data-table__cell--non-numeric">Comment Here</td>
+        <td class="mdl-data-table__cell--non-numeric">
+          <md-select id="{{data.id}}" ng-model="approvalsModel" placeholder="{{data.isApproved}}" class="md-no-underline" aria-label="aaa" >
+            <md-option value="Approved" style="background-color:blue; color:white;" ng-click="selectedChangeApprovals(data.id,'Approved')">Approved</md-option>
+            <md-option value="Not Approved" style="background-color:red; color:white;" ng-click="selectedChangeApprovals(data.id,'Not Approved')">Not Approved</md-option>
+          </md-select>
+        </td>
+        <td class="mdl-data-table__cell--non-numeric">
+          <md-select id="{{data.id}}" ng-model="returnsModel" placeholder="{{data.isReturned}}" class="md-no-underline" aria-label="rrr" >
+            <md-option value="Approved" style="background-color:blue; color:white;" ng-click="selectedChangeReturns(data.id,'Returned')">Returned</md-option>
+            <md-option value="Not Approved" style="background-color:red; color:white;" ng-click="selectedChangeReturns(data.id,'Not Returned')">Not Returned</md-option>
+          </md-select>
+        </td>
+        <td>
+          <!-- <md-button id="{{data.id}}" class="md-icon-button" aria-label="More" ng-click="editAssetRequest(data)">
+            <i class="material-icons table-icons">edit</i>
+          </md-button> -->
+          <md-button id="{{data.id}}" class="md-icon-button" aria-label="More" ng-click="tableDeleteAssetRequest(data.id)">
+            <i class="material-icons table-icons">delete</i>
+          </md-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+  <!-- <p> Your Smiley is {{cfdump}}</p> -->
+
+  <!-- <h1>Chart Here</h1> -->
+  <!-- <div id="chart1">
+  <canvas id="popChart" width="100" height="100"></canvas>
+</div> -->
+</div>
+
+<!-- <md-card-actions layout="row" layout-align="end center">
+<md-button>Action 1</md-button>
+<md-button>Action 2</md-button>
+</md-card-actions> -->
+</md-card>
+<!-- </div> -->
+
+<!-- <script>
+
+// Charjs Chart
+var popCanvas = document.getElementById("popChart");
+var barChart = new Chart(popCanvas, {
+type: 'bar',
+data: {
+labels: ["China", "India", "United States", "Indonesia", "Brazil", "Pakistan", "Nigeria", "Bangladesh", "Russia", "Japan"],
+datasets: [{
+label: 'Population',
+data: [1379, 1281, 3266, 2605, 5391, 9861, 2261, 1578, 2219, 1398],
+backgroundColor: [
+'rgba(255, 99, 132, 0.6)',
+'rgba(54, 162, 235, 0.6)',
+'rgba(255, 206, 86, 0.6)',
+'rgba(75, 192, 192, 0.6)',
+'rgba(153, 102, 255, 0.6)',
+'rgba(255, 159, 64, 0.6)',
+'rgba(255, 99, 132, 0.6)',
+'rgba(54, 162, 235, 0.6)',
+'rgba(255, 206, 86, 0.6)',
+'rgba(75, 192, 192, 0.6)',
+'rgba(153, 102, 255, 0.6)'
+]
+}]
+}
+});
+</script> -->
+</body>
+
+</html>
